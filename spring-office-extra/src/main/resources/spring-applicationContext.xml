@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.catfish.**.service"/>
+    <context:component-scan base-package="com.catfish.**.support"/>
+
+    <context:property-placeholder location="classpath*:config.properties"/>
+
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="10.51.88.91"></property>
+        <property name="username" value="hybmaster"></property>
+        <property name="password" value="1q2w3e4r"></property>
+        <property name="protocol" value="smtp"></property>
+        <property name="defaultEncoding" value="utf-8"></property>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.from">hybmaster@hrtpayment.com</prop>
+                <prop key="mail.debug">true</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>
